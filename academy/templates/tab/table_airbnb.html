@@ -1,0 +1,124 @@
+{% extends 'tables.html' %}
+
+{% block table %}
+
+<div class="container-fluid border my-3 border-primary">
+    <div class="container-fluid py-3 my-3 border">
+        <div class="container-fluid">
+            <h5>Таблица Users(airbnb group)</h5>
+            <table class="table-sm table-bordered my-3">
+                <thead>
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>email</th>
+                    <th>email_verified_at</th>
+                    <th>password</th>
+                    <th>phone_number</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{user.id}}</td>
+                    <td>{{user.name}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.email_verified_at}}</td>
+                    <td>{{user.password}}</td>
+                    <td>{{user.phone_number}}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="container-fluid">
+            <h5>Таблица Rooms(airbnb group)</h5>
+            <table class="table-sm table-bordered my-3">
+                <thead>
+                <tr>
+                    <th>id</th>
+                    <th>home_type</th>
+                    <th>address</th>
+                    <th>has_tv</th>
+                    <th>has_internet</th>
+                    <th>has_kitchen</th>
+                    <th>has_air_con</th>
+                    <th>price</th>
+                    <th>owner_id</th>
+                    <th>latitude</th>
+                    <th>longitude</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for room in rooms %}
+                <tr>
+                    <td>{{room.id}}</td>
+                    <td>{{room.home_type}}</td>
+                    <td>{{room.address}}</td>
+                    <td>{{room.has_tv}}</td>
+                    <td>{{room.has_internet}}</td>
+                    <td>{{room.has_kitchen}}</td>
+                    <td>{{room.has_air_con}}</td>
+                    <td>{{room.price}}</td>
+                    <td>{{room.owner_id}}</td>
+                    <td>{{room.latitude}}</td>
+                    <td>{{room.longnitude}}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="container-fluid">
+            <h5>Таблица Reservations(airbnb group)</h5>
+            <table class="table-sm table-bordered my-3">
+                <thead>
+                <tr>
+                    <th>id</th>
+                    <th>user</th>
+                    <th>room</th>
+                    <th>start_date</th>
+                    <th>end_date</th>
+                    <th>price</th>
+                    <th>total</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for res in reservations %}
+                <tr>
+                    <td>{{res.id}}</td>
+                    <td>{{res.user}}</td>
+                    <td>{{res.room}}</td>
+                    <td>{{res.start_date}}</td>
+                    <td>{{res.end_date}}</td>
+                    <td>{{res.price}}</td>
+                    <td>{{res.total}}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="container-fluid">
+            <h5>Таблица Reviews(airbnb group)</h5>
+            <table class="table-sm table-bordered my-3">
+                <thead>
+                <tr>
+                    <th>id</th>
+                    <th>reservation</th>
+                    <th>rating</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for rev in reviews %}
+                <tr>
+                    <td>{{rev.id}}</td>
+                    <td>{{rev.reservation}}</td>
+                    <td>{{rev.rating}}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock table %}

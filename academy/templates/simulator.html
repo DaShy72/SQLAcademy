@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-4 text-center bg-light">
+                <a href="{% url 'simulator' %}" class="d-block text-decoration-none">
+                    <div class="container text-center text-black py-3">
+                        <h3>Список заданий</h3>
+                    </div>
+
+                </a>
+            </div>
+            <div class="col-4 text-center bg-light">
+                <a href="{% url 'tables' %}" class="d-block text-decoration-none">
+                    <div class="container text-center text-black py-3">
+                        <h3>Загрузка таблиц в PostgreSQL</h3>
+                    </div>
+
+                </a>
+            </div>
+            <div class="col-4 text-center bg-light">
+                <a href="{% url 'tutorial' %}" class="d-block text-decoration-none">
+                    <div class="container text-center text-black py-3">
+                        <h3>Туториал на загрузку PostgreSQL</h3>
+                    </div>
+
+                </a>
+            </div>
+
+        </div>
+    </div>
+    {% block content2 %}
+    <div class="container-fluid my-3 pt-2 bg-white">
+        {% for assign in assignments %}
+            <div class="container-fluid py-3 my-1 border border-dark rounded-3">
+                <h5><span class="text-primary">{{assign.id}}</span>. {{assign.assignment_name}}</h5>
+                {% if assign.complexity == 'easy' %}
+                    <h6><mark>{{assign.name_table}}</mark>   <span class="text-success">{{assign.complexity}}</span></h6>
+                {% endif %}
+                {% if assign.complexity == 'middle' %}
+                    <h6><mark>{{assign.name_table}}</mark>   <span class="text-warning">{{assign.complexity}}</span></h6>
+                {% endif %}
+                {% if assign.complexity == 'hard' %}
+                    <h6><mark>{{assign.name_table}}</mark>   <span class="text-danger">{{assign.complexity}}</span></h6>
+                {% endif %}
+            </div>
+
+        {% endfor %}
+    </div>
+    {% endblock content2 %}
+
+
+
+{% endblock content %}

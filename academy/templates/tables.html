@@ -1,0 +1,180 @@
+{% extends 'simulator.html' %}
+
+{% block content2 %}
+
+    <div class="container-fluid my-3 border-top border-bottom border-primary">
+        <div class="row">
+            <div class="col-3">
+                <div class="row mt-5">
+                    <a href="{% url 'tables' %}" class="d-block text-decoration-none">
+                        <div class="container text-center text-black py-3">
+                            <h6>Группа таблиц <span class="text-danger">AVIACOMPANY</span></h6>
+                        </div>
+                    </a>
+                </div>
+                <div class="row border-top">
+                    <a href="{% url 'aviacompany_code' %}" class="d-block text-decoration-none">
+                        <div class="container text-center text-black py-3">
+                            <h6>Код создания и загрузки для <span class="text-danger">AVIACOMPANY</span></h6>
+                        </div>
+                    </a>
+                </div>
+                <div class="row border-top">
+                    <a href="{% url 'table_family' %}" class="d-block text-decoration-none">
+                        <div class="container text-center text-black py-3">
+                            <h6>Группа таблиц <span class="text-danger">FAMILY</span></h6>
+                        </div>
+                    </a>
+                </div>
+                <div class="row border-top">
+                    <a href="{% url 'family_code' %}" class="d-block text-decoration-none">
+                        <div class="container text-center text-black py-3">
+                            <h6>Код создания и загрузки для <span class="text-danger">FAMILY</span></h6>
+                        </div>
+                    </a>
+                </div>
+                <div class="row border-top">
+                    <a href="{% url 'table_schedule' %}" class="d-block text-decoration-none">
+                        <div class="container text-center text-black py-3">
+                            <h6>Группа таблиц <span class="text-danger">SCHEDULE</span></h6>
+                        </div>
+                    </a>
+                </div>
+                <div class="row border-top">
+                    <a href="{% url 'schedule_code' %}" class="d-block text-decoration-none">
+                        <div class="container text-center text-black py-3">
+                            <h6>Код создания и загрузки для <span class="text-danger">SCHEDULE</span></h6>
+                        </div>
+                    </a>
+                </div>
+                <div class="row border-top">
+                    <a href="{% url 'table_airbnb' %}" class="d-block text-decoration-none">
+                        <div class="container text-center text-black py-3">
+                            <h6>Группа таблиц <span class="text-danger">AIRBNB</span></h6>
+                        </div>
+                    </a>
+                </div>
+                <div class="row border-top">
+                    <a href="{% url 'airbnb_code' %}" class="d-block text-decoration-none">
+                        <div class="container text-center text-black py-3">
+                            <h6>Код создания и загрузки для <span class="text-danger">AIRBNB</span></h6>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+            <div class="col-9 d-flex">
+                {% block table %}
+                    <div class="container-fluid border my-3 border-primary">
+
+                        <div class="container-fluid py-3 my-3 border">
+                            <div class="container-fluid">
+                                <h5>Таблица Trip(aviacompany group)</h5>
+                                <table class="table-sm table-bordered my-3">
+                                    <thead>
+                                        <tr>
+                                            <th>id_trip</th>
+                                            <th>company</th>
+                                            <th>plane</th>
+                                            <th>town_from</th>
+                                            <th>town_to</th>
+                                            <th>time_out</th>
+                                            <th>time_in</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for tri in trip %}
+                                            <tr>
+                                                <td>{{tri.id_trip}}</td>
+                                                <td>{{tri.company}}</td>
+                                                <td>{{tri.plane}}</td>
+                                                <td>{{tri.town_from}}</td>
+                                                <td>{{tri.town_to}}</td>
+                                                <td>{{tri.time_out}}</td>
+                                                <td>{{tri.time_in}}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="container-fluid">
+                                <h5>Таблица Company(aviacompany group)</h5>
+                                <table class="table-sm table-bordered my-3">
+                                    <thead>
+                                        <tr>
+                                            <th>id</th>
+                                            <th>name</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for comp in company %}
+                                            <tr>
+                                                <td>{{comp.id}}</td>
+                                                <td>{{comp.name}}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+
+                                </table>
+                            </div>
+                            <div class="container-fluid">
+                                <h5>Таблица Pass_In_Trip(aviacompany group)</h5>
+                                <table class="table-sm table-bordered my-3">
+                                    <thead>
+                                        <tr>
+                                            <th>id</th>
+                                            <th>trip</th>
+                                            <th>passenger</th>
+                                            <th>place</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for pass in pass_in_trip %}
+                                            <tr>
+                                                <td>{{pass.id}}</td>
+                                                <td>{{pass.trip_id}}</td>
+                                                <td>{{pass.passenger}}</td>
+                                                <td>{{pass.place}}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+
+                                </table>
+                            </div>
+                            <div class="container-fluid">
+                                <h5>Таблица Passenger(aviacompany group)</h5>
+                                <table class="table-sm table-bordered my-3">
+                                    <thead>
+                                        <tr>
+                                            <th>id</th>
+                                            <th>name</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for passen in passenger %}
+                                            <tr>
+                                                <td>{{passen.id}}</td>
+                                                <td>{{passen.name}}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                {% endblock table %}
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+{% endblock content2 %}

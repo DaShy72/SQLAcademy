@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <script defer src="/static/js/bootstrap.bundle.min.js"></script>
+    <link rel="shortcut icon" href="{% static 'images/logo.jpg' %}">
+
+
+    {% block head %}
+    {% endblock head %}
+</head>
+<body>
+<! Main container page-->
+<div class="container-fluid border bg-light">
+
+    <div class="container-fluid my-2 border bg-light">
+        <div class="row">
+            <div class="col-6 text-center">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-3 offset-2">
+                            <a href="{% url 'index' %}" class="d-block text-decoration-none">
+                                <div class="container text-center text-black">
+                                    <h1 class="lh-1">SQL ALCHEMY</h1>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-2 d-none d-lg-block align-items-center">
+                            <a href="{% url 'course' %}" class="d-block text-decoration-none">
+                                <div class="container text-end text-black">
+                                    <h3>Курс</h3>
+                                </div>
+                            </a>
+
+                        </div>
+                        <div class="col-3 d-none d-lg-block align-items-center">
+                            <a href="{% url 'simulator' %}" class="d-block text-decoration-none">
+                                <div class="container text-center text-black">
+                                    <h3>Тренажер</h3>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-6">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="d-flex col-4 offset-6 justify-content-center align-items-center">
+                            {% if user.is_authenticated %}
+                                <p class="py-3 mx-5">Welcome, {{ user.username }}</p>
+                                    <form action="{% url 'logout' %}" method="post">
+                                        {% csrf_token %}
+                                        <button type="submit">Logout</button>
+                                    </form>
+                                {% else %}
+                                    <p><a class="text-decoration-none text-black" href="{% url 'login' %}">Login</a> |
+                                        <a class="text-decoration-none text-black" href="{% url 'register' %}">Register</a>
+                                    </p>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid border my-1 py-5 bg-white">
+        {% block content %}
+        {% endblock content %}
+    </div>
+
+
+
+    <div class="container-fluid my-3">
+        <div class="row lh-1">
+            <div class="col-4">
+                <p><b>Для пользователей</b></p>
+                <p>Пользовательское соглашение</p>
+            </div>
+            <div class="col-4">
+                <p><b>Для бизнеса</b></p>
+                <p>Реклама</p>
+                <p>Оплата от юридического лица</p>
+            </div>
+            <div class="col-4">
+                <p><b>Навигация</b></p>
+                <p>Курс по SQL</p>
+                <p>Тренажер SQL заданий</p>
+                <p>Песочница с нашими БД</p>
+                <p>Cправочник по SQL функциям</p>
+                <p>Вопросы с собеседований</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<script>
+    function toggleMenu() {
+        const nav = document.getElementById("navLinks");
+        nav.classList.toggle("active");
+    }
+</script>
+
+</body>
+</html>

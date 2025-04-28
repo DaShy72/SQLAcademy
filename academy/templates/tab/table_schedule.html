@@ -1,0 +1,169 @@
+{% extends 'tables.html' %}
+
+{% block table %}
+
+<div class="container-fluid border my-3 border-primary">
+    <div class="container-fluid py-3 my-3 border">
+        <div class="container-fluid">
+            <h5>Таблица Student(schedule group)</h5>
+            <table class="table-sm table-bordered my-3">
+                <thead>
+                <tr>
+                    <th>id</th>
+                    <th>first_name</th>
+                    <th>middle_name</th>
+                    <th>last_name</th>
+                    <th>birthday</th>
+                    <th>address</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for stud in student %}
+                <tr>
+                    <td>{{stud.id}}</td>
+                    <td>{{stud.first_name}}</td>
+                    <td>{{stud.middle_name}}</td>
+                    <td>{{stud.last_name}}</td>
+                    <td>{{stud.birthday}}</td>
+                    <td>{{stud_address}}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="container-fluid">
+            <h5>Таблица Class(schedule group)</h5>
+            <table class="table-sm table-bordered my-3">
+                <thead>
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for cl in klass %}
+                <tr>
+                    <td>{{cl.id}}</td>
+                    <td>{{cl.name}}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="container-fluid">
+            <h5>Таблица Student_In_Class(schedule group)</h5>
+            <table class="table-sm table-bordered my-3">
+                <thead>
+                <tr>
+                    <th>id</th>
+                    <th>klass</th>
+                    <th>student</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for studen in student_in_class %}
+                <tr>
+                    <td>{{studen.id}}</td>
+                    <td>{{studen.klass}}</td>
+                    <td>{{studen.student}}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="container-fluid">
+            <h5>Таблица Timepair(schedule group)</h5>
+            <table class="table-sm table-bordered my-3">
+                <thead>
+                <tr>
+                    <th>id</th>
+                    <th>start_pair</th>
+                    <th>end_pair</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for time in timepair %}
+                <tr>
+                    <td>{{time.id}}</td>
+                    <td>{{time.start_pair}}</td>
+                    <td>{{time_end_pair}}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="container-fluid">
+            <h5>Таблица Teacher(schedule group)</h5>
+            <table class="table-sm table-bordered my-3">
+                <thead>
+                <tr>
+                    <th>id</th>
+                    <th>first_name</th>
+                    <th>middle_name</th>
+                    <th>last_name</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for teach in teacher %}
+                <tr>
+                    <td>{{teach.id}}</td>
+                    <td>{{teach.first_name}}</td>
+                    <td>{{teach.middle_name}}</td>
+                    <td>{{teach.last_name}}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="container-fluid">
+            <h5>Таблица Subject(schedule group)</h5>
+            <table class="table-sm table-bordered my-3">
+                <thead>
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for sub in subject %}
+                <tr>
+                    <td>{{sub.id}}</td>
+                    <td>{{sub.name}}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="container-fluid">
+            <h5>Таблица Schedule(schedule group)</h5>
+            <table class="table-sm table-bordered my-3">
+                <thead>
+                <tr>
+                    <th>id</th>
+                    <th>date</th>
+                    <th>klass</th>
+                    <th>number_pair</th>
+                    <th>teacher</th>
+                    <th>subject</th>
+                    <th>classroom</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for sch in schedule %}
+                <tr>
+                    <td>{{sch.id}}</td>
+                    <td>{{sch.date}}</td>
+                    <td>{{sch.klass}}</td>
+                    <td>{{sch.number_pair}}</td>
+                    <td>{{sch.teacher}}</td>
+                    <td>{{sch.subject}}</td>
+                    <td>{{sch.classroom}}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock table %}

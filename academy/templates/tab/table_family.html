@@ -1,0 +1,102 @@
+{% extends 'tables.html' %}
+
+{% block table %}
+
+<div class="container-fluid border my-3 border-primary">
+    <div class="container-fluid py-3 my-3 border">
+        <div class="container-fluid">
+            <h5>Таблица GoodTypes(family group)</h5>
+            <table class="table-sm table-bordered my-3">
+                <thead>
+                <tr>
+                    <th>good_type_id</th>
+                    <th>good_type_name</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for goodt in goodtypes %}
+                <tr>
+                    <td>{{goodt.good_type_id}}</td>
+                    <td>{{goodt.good_type_name}}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="container-fluid">
+            <h5>Таблица Goods(family group)</h5>
+            <table class="table-sm table-bordered my-3">
+                <thead>
+                <tr>
+                    <th>good_id</th>
+                    <th>good_name</th>
+                    <th>type</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for good in goods %}
+                <tr>
+                    <td>{{good.good_id}}</td>
+                    <td>{{good.good_name}}</td>
+                    <td>{{good.type}}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="container-fluid">
+            <h5>Таблица FamilyMembers(family group)</h5>
+            <table class="table-sm table-bordered my-3">
+                <thead>
+                <tr>
+                    <th>member_id</th>
+                    <th>status</th>
+                    <th>member_name</th>
+                    <th>birthday</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for fm in familymembers %}
+                <tr>
+                    <td>{{fm.member_id}}</td>
+                    <td>{{fm.status}}</td>
+                    <td>{{fm.member_name}}</td>
+                    <td>{{fm.birthday}}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="container-fluid">
+            <h5>Таблица Payments(family group)</h5>
+            <table class="table-sm table-bordered my-3">
+                <thead>
+                <tr>
+                    <th>payment_id</th>
+                    <th>family_member</th>
+                    <th>good</th>
+                    <th>amount</th>
+                    <th>unit_price</th>
+                    <th>date</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for pay in payments %}
+                <tr>
+                    <td>{{pay.payment_id}}</td>
+                    <td>{{pay.family_member}}</td>
+                    <td>{{pay.good}}</td>
+                    <td>{{pay.amount}}</td>
+                    <td>{{pay.unit_price}}</td>
+                    <td>{{pay.date}}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock table %}
+
+
